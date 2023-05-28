@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA-2022513</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Bootstrap JavaScript and jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Pet Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/add_page">Add Item</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h3 style="text-align: center;">
+        New Pets:
+    </h3>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="/add_item" method="POST">
+                    <ul class="list-unstyled">
+                        <li class="row align-items-center">
+                            <div class="col-md-2">Id:</div>
+                            <div class="col-md-6">
+                                <input type="text" name="id" class="form-control">
+                            </div>
+                        </li>
+                        <li class="row align-items-center">
+                            <div class="col-md-2">Name:</div>
+                            <div class="col-md-6">
+                                <input type="text" name="name" class="form-control">
+                            </div>
+                        </li>
+                        <li class="row align-items-center">
+                            <div class="col-md-2">Type:</div>
+                            <div class="col-md-6">
+                                <input type="text" name="type" class="form-control">
+                            </div>
+                        </li>     
+                        <li class="row align-items-center">
+                            <div class="col-md-2">Breed:</div>
+                            <div class="col-md-6">
+                                <input type="text" name="breed" class="form-control">
+                            </div>
+                        </li>
+                        <li class="row align-items-center">
+                            <div class="col-md-2">Price:</div>
+                            <div class="col-md-6">
+                                <input type="text" name="price" class="form-control">
+                            </div>
+                        </li>
+                    </ul>
+                    <button type="submit" class="btn badge rounded-pill bg-primary custom-btn-xl custom-btn-wide" style="color: white" id="changePos">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA-2022513</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Bootstrap JavaScript and jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Pet Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add_page">Add Item</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h3 style="text-align: center;">
+        Welcome to
+        <small class="text-info">Wei-Ming's</small>
+        Pet Store
+      </h3>
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-active">
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Breed</th>
+                <th scope="col">Price</th>
+                <th scope="col" class="merge-columns">Action</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pet in pets %}
+            {% set class_index = loop.index0 %} {# Subtract 1 to start index from 0 #}
+            {% set class_name = ['table-info', 'table-success', 'table-warning', 'table-danger','table-dark'][class_index % 5] %}
+            <tr class="{{ class_name }}">
+                <td>{{ pet.id }}</td>
+                <td>{{ pet.name }} </td>
+                <td>{{ pet.type }} </td>
+                <td>{{ pet.breed }} </td>
+                <td>{{ pet.price }}</td>
+                <td><a href="/update_item/{{ pet.id }}">Update</a></td>
+                <td><a href="/delete_item/{{ pet.id }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

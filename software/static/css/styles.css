@@ -1,0 +1,33 @@
+h2 {
+    color: blue;
+
+}
+h3 {
+    margin-top: 20px;
+    margin-right: 100px;
+  }
+  
+  #changePos{
+    position: relative;
+    top: 10px;
+    left: 17%;
+  }
+  
+  .custom-btn-xl {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+  .custom-btn-wide {
+    width: 50%;
+  
+}
+.confirm-btn-wide{
+  width: 28%;
+  margin-left: 50px;
+}
+@media (max-width: 576px) {
+    .btn-responsive {
+      width: 100%; /* Change the width to 100% for smaller screens */
+    }
+}

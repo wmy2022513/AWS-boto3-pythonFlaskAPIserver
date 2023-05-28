@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA-2022513</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Bootstrap JavaScript and jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Pet Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add_page">Add Item</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <body>
+        <form action="/delete_item/{{ pet.id }}" method="POST">
+            <h3 style="text-align: center;">Are you sure you want to delete this pet?</h3>
+            <table class="table table-hover" action="/delete_item/{{ pet.id }}" method="POST">
+                <thead>
+                    <tr class="table-active">
+                        <th scope="col">id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Breed</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                <tbody>
+                    <tr class="table-warning">
+                        <td>{{ pet.id}}</td>
+                        <td>{{ pet.name}} </td>
+                        <td>{{ pet.type }} </td>
+                        <td>{{ pet.breed }} </td>
+                        <td>{{ pet.price }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" onclick="goBack()"
+                class="btn badge rounded-pill bg-success custom-btn-xl confirm-btn-wide" style="color: white"
+                id="changePos">No</button>
+            <button type="submit" class="btn badge rounded-pill bg-danger custom-btn-xl confirm-btn-wide"
+                style="color: white" id="changePos"><a><u>Yes</u></a></button>
+        </form>
+    </body>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</html>
